@@ -19,29 +19,35 @@ const ticketCalc = function(){
     let km1 = parseInt(document.getElementById('km').value);
     let age1 = parseInt(document.getElementById('age').value);
 
-    console.log(km1);
-    console.log(age1);
+    // console.log(km1);
+    // console.log(age1);
+
+    const price = 0.21;
+    const totalPrice = price * km1;
+
+    // console.log(price);
+    // console.log(totalPrice);
+
+    const ds20 = totalPrice * 0.2;
+    const ds40 = totalPrice * 0.4;
+
+    // console.log(ds20);
+    // console.log(ds40);
+
+
+} 
+
 }
 
 mybtn.addEventListener('click', ticketCalc);
 
 
 
-// const nmrKm = parseInt(prompt('Quanti KM vuoi percorrere?'));
-// const passengerAge = parseInt(prompt('Quanti anni hai?'));
 
 
 // if(isNaN(nmrKm) || isNaN(passengerAge)) {
 //     alert('Inserisci numeri!');
 // }
-
-// const price = 0.21;
-// const totalPrice = price * nmrKm;
-
-
-
-// let ds20 = totalPrice * 0.2;
-// let ds40 = totalPrice * 0.4;
 
 
 
