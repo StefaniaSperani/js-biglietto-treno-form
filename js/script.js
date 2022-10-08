@@ -16,16 +16,21 @@ const mybtn = document.getElementById('ticket-price');
 // console.log(mybtn);
 
 const ticketCalc = function(){
-    let km1 = parseInt(document.getElementById('km').value);
-    let age1 = parseInt(document.getElementById('age').value);
+    let km = parseInt(document.getElementById('km').value);
+    let age = parseInt(document.getElementById('age').value);
 
-    // console.log(km1);
-    // console.log(age1);
+    // console.log(km);
+    // console.log(age);
 
-    const price = 0.21;
-    const totalPrice = price * km1;
+    if(isNaN(km) || isNaN(age)) {
+        alert('Inserisci dei valori validi!');
+    }
 
-    // console.log(price);
+
+    const priceKm = 0.21;
+    const totalPrice = priceKm * km;
+
+    // console.log(priceKm);
     // console.log(totalPrice);
 
     const ds20 = totalPrice * 0.2;
@@ -35,9 +40,37 @@ const ticketCalc = function(){
     // console.log(ds40);
 
 
+    let finalPrice;
+
+
+    if(age < 18){
+    finalPrice = totalPrice - ds20;
+    // console.log(finalPrice);
+
+    } else if(age >= 65){ 
+    finalPrice = totalPrice - ds40;
+    // console.log(finalPrice);
+    } else{
+    finalPrice = totalPrice;
+    // console.log(finalPrice);
+    }
+
+    finalPrice.toFixed(2);
+    // console.log(finalPrice.toFixed(2));
+
+    const message = document.getElementById('message');
+
+     message.innerHTML = `
+        <div class="fs-3 py-2">La tua età: ${age}</div>
+        <div class="fs-3 py-2">Il costo del tuo biglietto: ${finalPrice.toFixed(2)}€</div>
+        <div class="pt-4">Se hai meno di 18 anni hai uno sconto del <span class="red">20%!</span>
+        <div class="pt-2">Se hai più di 65 anni hai uno sconto del <span class="red">40%!</span>
+    `;
+    console.log(message);
 } 
 
-}
+
+
 
 mybtn.addEventListener('click', ticketCalc);
 
@@ -45,32 +78,8 @@ mybtn.addEventListener('click', ticketCalc);
 
 
 
-// if(isNaN(nmrKm) || isNaN(passengerAge)) {
-//     alert('Inserisci numeri!');
-// }
 
 
 
-// let total;
-
-// if(passengerAge < 18){
-//     total = (totalPrice - ds20);
-
-// } else if(passengerAge >= 65){ 
-//     total = (totalPrice - ds40);
-
-// } else{
-//     total = totalPrice;
-
-// }
-// total.toFixed(2);
-
-
-// let finalPrice = `
-//     <div class="fs-3">La tua età: ${passengerAge}</div>
-//     <div class="fs-3">Il costo del tuo biglietto: ${total.toFixed(2)}€</div>
-//     <div class="pt-2">Se hai meno di 18 anni hai uno sconto del <span class="red">20%!</span>
-//     <div>Se hai più di 65 anni hai uno sconto del <span class="red">40%!</span>
-// `;
 
 // const element = document.getElementById('ticket-price').innerHTML = finalPrice;
