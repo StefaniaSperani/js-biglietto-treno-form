@@ -1,10 +1,8 @@
 /* COMMON */
 
 body{
-    height: 100vh;
     background-image: linear-gradient(rgb(112, 15, 15), red);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-attachment: fixed;
 }
 
 header{
